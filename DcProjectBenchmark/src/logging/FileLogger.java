@@ -2,10 +2,17 @@ package logging;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class FileLogger implements ILogger{
     String filename;
     File obj;
+
+    @Override
+    public void write(String message) {
+
+    }
+
     public FileLogger(String fileName) {
         this.filename=fileName;
         try {
@@ -40,5 +47,14 @@ public class FileLogger implements ILogger{
 
     @Override
     public void close() {
+    }
+
+    @Override
+    public void writeTime(String message, long time, TimeUnit timeUnit) {
+        String fMessage=message+ time + " " + timeUnit;
+    }
+    @Override
+    public void write1(String message, String measures2) {
+
     }
 }

@@ -12,8 +12,16 @@ public class Timer implements ITimer{
         startTime = System.nanoTime();
     }
 
-    public void resume
-
+    public void resume(){
+        startTime = System.nanoTime();
+    }
+    public long pause(){
+        elapsedTime=0;
+        endTime=System.nanoTime();
+        elapsedTime=endTime-startTime;
+        totalTime+=elapsedTime;
+        return elapsedTime;
+    }
     @Override
     public long stop() {
         endTime = System.nanoTime();
@@ -21,5 +29,6 @@ public class Timer implements ITimer{
         totalTime += elapsedTime;
         return totalTime;
     }
+
 
 }
